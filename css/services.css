@@ -1,0 +1,100 @@
+.services-grid {
+  grid-template-columns: 18rem 1fr;
+}
+
+@media all and (max-width: 720px) {
+  .services-grid {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.services-grid h2 {
+  font-size: 1rem;
+}
+
+.service-image {
+  height: 16rem;
+  overflow: hidden;
+  position: relative;
+  border-radius: var(--radius);
+  gap: 0.5rem;
+}
+
+@media all and (max-width: 720px) {
+  .services-grid {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    margin-top: 0rem;
+  }
+
+  .service-image {
+    height: 22rem;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .services-grid {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
+  .service-image {
+    height: 18rem;
+  }
+}
+
+.service-image h2 {
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.service-image img {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+
+.service-content {
+  padding: 1rem;
+  justify-content: center;
+}
+
+.service-content .grid {
+  grid-template-columns: auto auto;
+}
+
+@media all and (max-width: 640px) {
+  .service-content .grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.service-content .grid .icon {
+  height: 1rem;
+  width: 1rem;
+  background-color: var(--primary);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-content h2 {
+  opacity: 0.85;
+}
+
+.service-content .grid .icon svg {
+  height: 0.65rem;
+  width: 0.65rem;
+}
+
+.service-content .grid .icon svg path {
+  stroke: var(--white);
+  stroke-width: 3px;
+}

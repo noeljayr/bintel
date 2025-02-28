@@ -1,0 +1,139 @@
+.contact-content {
+  grid-template-columns: 45% 1fr;
+}
+
+@media all and (max-width: 914px) {
+  .contact-content {
+    grid-template-columns: 50% 1fr;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .contact-content {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.contact-content a {
+  text-decoration-color: var(--secondary);
+}
+.contact-content a:hover {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: var(--secondary);
+  text-decoration-thickness: 1px;
+}
+
+.contact-info {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media all and (max-width: 428px) {
+  .contact-info {
+    grid-template-columns: 1fr 40%;
+  }
+}
+
+@media all and (max-width: 372px) {
+  .contact-info {
+    grid-template-columns: 1fr 35%;
+  }
+}
+
+@media all and (max-width: 360px) {
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.contact-info div:nth-child(3),
+.contact-info div:nth-child(4) {
+  grid-column: 1 / span 2;
+}
+
+.contact-content .blob {
+  left: calc(50% - 15rem);
+  top: 8rem;
+}
+
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  width: 100%;
+  height: 100%;
+}
+
+@media all and (max-width: 400px) {
+  .contact-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 8rem auto;
+    width: 100%;
+    height: fit-content;
+  }
+}
+
+.contact-form input,
+.contact-form textarea {
+  height: 2.35rem;
+  border: 1px solid #e6e6e6;
+  border-radius: calc(var(--radius-sm) * 0.85);
+  padding: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  background-color: rgba(255, 255, 255, 0.6);
+  outline: 0;
+  display: flex;
+  align-items: center;
+}
+
+.contact-form textarea {
+  height: 100%;
+  resize: none;
+}
+
+.contact-form textarea::placeholder {
+  color: var(--black);
+  opacity: 0.6;
+}
+
+.contact-form .input-group-contact {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  gap: 0.5rem;
+}
+
+.contact-form .input-group-contact input::placeholder {
+  color: var(--black);
+  opacity: 0.6;
+}
+
+.contact-form .cta {
+  width: 100%;
+}
+
+.message-input {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+}
+
+.contact-form .grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media all and (max-width: 380px) {
+  .contact-form .grid {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.contact-content svg {
+  height: 1.25rem;
+  width: 1.25rem;
+}

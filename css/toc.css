@@ -1,0 +1,56 @@
+.toc-grid {
+  margin-top: 0;
+  grid-template-columns: 15rem 1fr;
+}
+
+.toc-grid .toc {
+  background-color: var(--border);
+  border-radius: var(--radius);
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.toc-grid .toc * {
+  font-family: "Sora";
+}
+
+.toc-content h2 {
+  font-size: 1rem;
+}
+
+@media all and (max-width: 720px) {
+  .toc-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .toc-grid .toc {
+    flex-direction: row;
+    padding: 1rem;
+    gap: 1.25rem;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .toc-grid .toc .title {
+    gap: 0.5rem;
+  }
+
+  .toc-grid .toc * {
+    font-size: 0.6rem;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .toc-grid .toc {
+    flex-wrap: wrap;
+    overflow-x: auto;
+    align-items: start;
+    justify-content: start;
+    gap: 1rem;
+  }
+  .toc-grid .toc .title {
+    width: fit-content;
+    white-space: nowrap;
+  }
+}

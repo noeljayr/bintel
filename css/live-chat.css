@@ -1,0 +1,109 @@
+#n8n-chat .chat-header {
+  display: none;
+}
+
+#n8n-chat *{
+    transition: var(--transition);
+}
+
+#n8n-chat .chat-layout .chat-body {
+  background: rgba(245, 244, 244, 0.8);
+  border: 0px solid transparent;
+  backdrop-filter: blur(0.5rem);
+}
+
+#n8n-chat * {
+  font-weight: 400;
+}
+#n8n-chat .chat-window-toggle {
+  position: relative;
+}
+
+#n8n-chat .chat-window-toggle svg path {
+ fill: var(--primary);
+}
+
+/* #n8n-chat .chat-window-toggle::after {
+  content: "";
+  background-image: url("../public/icons/message.svg");
+  background-size: 1.5rem 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+} */
+
+#n8n-chat .chat-window-wrapper .chat-window-toggle {
+  background: #f9d157;
+  box-shadow: 0 4px 12px rgb(249, 209, 87, 0.2);
+}
+
+#n8n-chat .chat-inputs textarea {
+  overflow: hidden;
+  height: 2.35rem;
+  border: 1px solid #e6e6e6;
+  border-radius: var(--radius-sm);
+  padding-left: 0.5rem;
+  outline: none;
+  display: flex;
+  padding: 0.5rem;
+  padding-left: 0.5rem;
+  padding-top: 0.65rem;
+}
+
+#n8n-chat .chat-inputs {
+  gap: 0.5rem;
+}
+
+#n8n-chat .chat-inputs-controls {
+  position: static;
+}
+
+#n8n-chat .chat-inputs-controls button {
+  background-color: var(--primary);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#n8n-chat .chat-inputs-controls button:hover {
+  background-color: var(--primary);
+  border-radius: var(--radius-sm);
+  filter: var(--cta-hover);
+}
+
+#n8n-chat .chat-layout .chat-footer {
+  border: 0px;
+  padding: 0.5rem;
+}
+
+#n8n-chat .chat-window-wrapper .chat-window {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+#n8n-chat svg path {
+  fill: var(--secondary);
+  stroke-width: 0;
+}
+
+#n8n-chat .chat-message.chat-message-from-user {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+#n8n-chat .chat-message {
+  border-radius: var(--radius-sm);
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+#n8n-chat .chat-message.chat-message-from-user p {
+  color: var(--white);
+}
+
+
+
+.overlay{
+  background-color: red;
+  z-index: 14;
+}

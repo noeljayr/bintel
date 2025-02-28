@@ -1,0 +1,65 @@
+.certifications img {
+  width: 7rem;
+  height: auto;
+  filter: grayscale(100%);
+}
+
+
+
+.page-content {
+  width: 83%;
+}
+
+.focus-area {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.focus-area ul li {
+  font-size: 0.6rem;
+}
+
+.focus-area .card {
+  background-color: white;
+  border-radius: calc(var(--radius) * 0.85);
+}
+
+.focus-area .card .icon {
+  height: 1.8rem;
+  width: 1.8rem;
+  background-color: #d2e8fa;
+  border-radius: 0.35rem;
+  margin-right: 0.5rem;
+}
+
+.focus-area .card .icon img {
+  height: 1.15rem;
+  width: 1.15rem;
+}
+
+.team-grid {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.team-grid .relative {
+  height: 13rem;
+}
+
+.team-grid .relative img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  object-position: center;
+}
+
+.team-grid .absolute {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(2px);
+  width: calc(100% - 1rem);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.team-grid .absolute .role{
+  font-size: 0.6rem;
+}
