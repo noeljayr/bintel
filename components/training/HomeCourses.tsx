@@ -4,7 +4,7 @@ import Link from "next/link";
 import Courses from "./Courses";
 import "@/css/training.css";
 import Events from "./Events";
-import { useEffect, useState, useCallback, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 function HomeCourses() {
   const [width, setWidth] = useState<number>(0);
