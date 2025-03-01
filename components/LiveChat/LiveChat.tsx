@@ -13,7 +13,7 @@ function LiveChat() {
         "I respond instantly. Never leaving you waiting! 😊",
       ],
       webhookUrl:
-        "https://bintelauto.app.n8n.cloud/webhook/306452bf-1524-443c-9b24-a8071f0de937/chat",
+        "https://bint.app.n8n.cloud/webhook/306452bf-1524-443c-9b24-a8071f0de937/chat",
     });
   }, []);
 
