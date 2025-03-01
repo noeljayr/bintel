@@ -151,6 +151,19 @@
   grid-template-columns: 42% 1fr;
   position: relative;
 }
+
+@media all and (max-width: 860px) {
+  .course-view {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media all and (max-width: 720px) {
+  .course-view {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
 .course-view .blob {
   align-self: center;
   left: 35%;

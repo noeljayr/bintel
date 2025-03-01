@@ -1,6 +1,6 @@
 .navbar {
   width: 100vw;
-  /* transition: var(--transition); */
+  transition: var(--transition);
   z-index: 5;
   grid-template-columns: 8.5rem auto 8.5rem;
   justify-content: space-between;
@@ -290,13 +290,12 @@
   top: 3.2rem;
   z-index: 5;
   background-color: white;
-  height: 4rem;
-  width: 4rem;
   overflow: hidden;
   top: 3.2rem;
   left: calc(100% - 5rem);
   opacity: 0;
   visibility: hidden;
+  transition-delay: 0.15s;
 }
 
 .menu-list-active {

@@ -4,19 +4,6 @@
   border-radius: var(--radius);
 }
 
-@media all and (max-width: 640px) {
-  .hero {
-    width: 100%;
-    height: initial;
-    aspect-ratio: 4/2.2;
-  }
-}
-
-@media all and (max-width: 450px) {
-  .hero {
-    aspect-ratio: 4/2.7;
-  }
-}
 
 .hero .hero-image {
   display: flex;

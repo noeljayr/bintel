@@ -25,7 +25,7 @@ function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       if (typeof window !== undefined) {
-        setIsScrolled(window.scrollY >= 20);
+        setIsScrolled(window.scrollY >= 5);
       }
     };
     handleScroll();
