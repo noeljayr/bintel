@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useCallback, useEffect, useState } from "react";
 import logo from "@/public/logo/bintel.png";
 import Link from "next/link";
 import Image from "next/image";
@@ -12,34 +13,42 @@ import {
   IconMail,
   IconPhone,
 } from "@tabler/icons-react";
-import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import LiveChatToggle from "./LiveChat/LiveChatToggle";
 import "@/css/navbar.css";
 
-function Navbar() {
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const pathname = usePathname();
   const [menuActive, setMenuActive] = useState(false);
+  const pathname = usePathname();
+
+  const handleScroll = useCallback(() => {
+    const scrolled = window.scrollY >= 5;
+    setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
+  }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (typeof window !== undefined) {
-        setIsScrolled(window.scrollY >= 5);
-      }
-    };
-    handleScroll();
+    if (typeof window !== "undefined") {
+      handleScroll(); // Set initial scroll state
+      window.addEventListener("scroll", handleScroll, { passive: true });
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
+  }, [handleScroll]);
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname]);
+  const toggleMenu = useCallback(() => {
+    setMenuActive((prev) => !prev);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setMenuActive(false);
+  }, []);
 
   return (
     <>
       <div
-        className={`contact-header flex items-center py-2 px-4 gap-4
-        ${pathname !== "/" ? "mb-20" : "mb-2"}
-        `}
+        className={`contact-header flex items-center py-2 px-4 gap-4 ${
+          pathname !== "/" ? "mb-20" : "mb-2"
+        }`}
       >
         <Link
           href="tel:+265 212 400 338"
@@ -49,15 +58,14 @@ function Navbar() {
           <span>+265 212 400 338</span>
         </Link>
         <Link
+          href="mailto:info@bintelanalytics.mw"
           target="_blank"
           rel="noopener noreferrer"
-          href="mailto:info@bintelanalytics.mw"
           className="header-link flex items-center gap-1 mr-auto"
         >
           <IconMail />
           <span>info@bintelanalytics.mw</span>
         </Link>
-
         <Link
           href="https://web.facebook.com/bintelanalyticsmalawi"
           target="_blank"
@@ -121,7 +129,7 @@ function Navbar() {
           >
             Home
           </Link>
-          <span className="opacity-40"></span>
+          <span className="opacity-40" />
           <div
             className={`flex services-link items-center relative gap-1 ${
               pathname.startsWith("/services")
@@ -133,49 +141,48 @@ function Navbar() {
             <IconChevronDown />
             <div className="submenu left-0 absolute flex flex-col gap-2 p-4">
               <Link
+                href="/services/bi-it-infrastructure"
                 className={`${
                   pathname.startsWith("/services/bi-it-infrastructure")
                     ? "font-semibold"
                     : "opacity-75"
                 }`}
-                href="/services/bi-it-infrastructure"
               >
                 Business Intelligence & IT Infrastructure
               </Link>
               <Link
+                href="/services/data-management"
                 className={`${
                   pathname.startsWith("/services/data-management")
                     ? "font-semibold"
                     : "opacity-75"
                 }`}
-                href="/services/data-management"
               >
                 Data Collection, Management & Analysis
               </Link>
               <Link
+                href="/services/training"
                 className={`${
                   pathname.startsWith("/services/training")
                     ? "font-semibold"
                     : "opacity-75"
                 }`}
-                href="/services/training"
               >
                 Business Intelligence & Analytics Training
               </Link>
               <Link
+                href="/services/research"
                 className={`${
                   pathname.startsWith("/services/research")
                     ? "font-semibold"
                     : "opacity-75"
                 }`}
-                href="/services/research"
               >
-                {" "}
                 Research & Projects Support
               </Link>
             </div>
           </div>
-          <span className="opacity-40"></span>
+          <span className="opacity-40" />
           <Link
             href="/services/training"
             className={`flex items-center ${
@@ -186,7 +193,7 @@ function Navbar() {
           >
             Training
           </Link>
-          <span className="opacity-40"></span>
+          <span className="opacity-40" />
           <Link
             href="/contact"
             className={`flex items-center ${
@@ -197,7 +204,7 @@ function Navbar() {
           >
             Contact
           </Link>
-          <span className="opacity-40"></span>
+          <span className="opacity-40" />
           <Link
             href="/about"
             className={`flex items-center ${
@@ -219,17 +226,15 @@ function Navbar() {
         </div>
 
         <div
-          onClick={() => {
-            setMenuActive(!menuActive);
-          }}
+          onClick={toggleMenu}
           className={`mobile-menu-btn ${
             menuActive ? "mobile-menu-active" : ""
           }`}
         >
           <div className="flex flex-col items-center justify-center w-full h-full">
-            <span className="bar"></span>
-            <span className="bar"></span>
-            <span className="bar"></span>
+            <span className="bar" />
+            <span className="bar" />
+            <span className="bar" />
           </div>
         </div>
       </div>
@@ -240,9 +245,7 @@ function Navbar() {
         }`}
       >
         <Link
-          onClick={() => {
-            setMenuActive(false);
-          }}
+          onClick={closeMenu}
           href="/"
           className={`flex items-center ${
             pathname === "/" ? "opacity-100 font-semibold" : "opacity-75"
@@ -257,68 +260,56 @@ function Navbar() {
           }`}
         >
           <b className="opacity-75 font-normal">Services</b>
-
           <div className="submenu flex flex-col gap-2">
             <Link
-              onClick={() => {
-                setMenuActive(false);
-              }}
+              onClick={closeMenu}
+              href="/services/bi-it-infrastructure"
               className={`${
                 pathname.startsWith("/services/bi-it-infrastructure")
                   ? "font-semibold"
                   : "opacity-75"
               }`}
-              href="/services/bi-it-infrastructure"
             >
               Business Intelligence & IT Infrastructure
             </Link>
             <Link
-              onClick={() => {
-                setMenuActive(false);
-              }}
+              onClick={closeMenu}
+              href="/services/data-management"
               className={`${
                 pathname.startsWith("/services/data-management")
                   ? "font-semibold"
                   : "opacity-75"
               }`}
-              href="/services/data-management"
             >
               Data Collection, Management & Analysis
             </Link>
             <Link
-              onClick={() => {
-                setMenuActive(false);
-              }}
+              onClick={closeMenu}
+              href="/services/training"
               className={`${
                 pathname.startsWith("/services/training")
                   ? "font-semibold"
                   : "opacity-75"
               }`}
-              href="/services/training"
             >
               Business Intelligence & Analytics Training
             </Link>
             <Link
-              onClick={() => {
-                setMenuActive(false);
-              }}
+              onClick={closeMenu}
+              href="/services/research"
               className={`${
                 pathname.startsWith("/services/research")
                   ? "font-semibold"
                   : "opacity-75"
               }`}
-              href="/services/research"
             >
-              {" "}
               Research & Projects Support
             </Link>
           </div>
         </div>
 
         <Link
-          onClick={() => {
-            setMenuActive(false);
-          }}
+          onClick={closeMenu}
           href="/services/training"
           className={`flex items-center ${
             pathname.startsWith("/services/training")
@@ -330,9 +321,7 @@ function Navbar() {
         </Link>
 
         <Link
-          onClick={() => {
-            setMenuActive(false);
-          }}
+          onClick={closeMenu}
           href="/contact"
           className={`flex items-center ${
             pathname.startsWith("/contact")
@@ -344,9 +333,7 @@ function Navbar() {
         </Link>
 
         <Link
-          onClick={() => {
-            setMenuActive(false);
-          }}
+          onClick={closeMenu}
           href="/about"
           className={`flex items-center ${
             pathname.startsWith("/about")
@@ -357,12 +344,7 @@ function Navbar() {
           About
         </Link>
 
-        <div
-          onClick={() => {
-            setMenuActive(false);
-          }}
-          className={`flex w-full`}
-        >
+        <div onClick={closeMenu} className="flex w-full">
           <LiveChatToggle
             variant={
               isScrolled || menuActive || pathname !== "/" ? "cta" : "cta-2"
@@ -373,6 +355,6 @@ function Navbar() {
       </div>
     </>
   );
-}
+};
 
-export default Navbar;
+export default React.memo(Navbar);

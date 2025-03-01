@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { IconChevronRight } from "@tabler/icons-react";
 import {
   ContentfulResponse,
   CourseEntry,
@@ -18,37 +18,47 @@ const API_URL =
   "https://cdn.contentful.com/spaces/g2f1mxz40ho6/environments/master/entries?content_type=course&limit=";
 const TOKEN = "nae8zcHy4QUgcdxGk58e1rcYxN1M37sY_pGiijbIeRM";
 
-function Courses(props: CoursesTypes) {
+function Courses({ limit }: CoursesTypes) {
   const [data, setData] = useState<ContentfulResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch(`${API_URL}${props.limit}`, {
-      headers: {
-        Authorization: `Bearer ${TOKEN}`,
-      },
-    })
-      .then((res) => {
+    const controller = new AbortController();
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const res = await fetch(`${API_URL}${limit}`, {
+          headers: { Authorization: `Bearer ${TOKEN}` },
+          signal: controller.signal,
+        });
         if (!res.ok) {
           throw new Error("Network response was not ok");
         }
-        return res.json();
-      })
-      .then((data: ContentfulResponse) => {
-        setData(data);
+        const json: ContentfulResponse = await res.json();
+        setData(json);
+      } catch (err: any) {
+        if (err.name !== "AbortError") {
+          setError(err.message || "An error occurred");
+        }
+      } finally {
         setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, [props.limit]);
+      }
+    };
+    fetchData();
+    return () => controller.abort();
+  }, [limit]);
 
-  const assetMap: { [key: string]: Asset } = {};
-  data?.includes?.Asset?.forEach((asset) => {
-    assetMap[asset.sys.id] = asset;
-  });
+  const assetMap = useMemo(() => {
+    if (!data?.includes?.Asset) return {};
+    return data.includes.Asset.reduce(
+      (map: { [key: string]: Asset }, asset: Asset) => {
+        map[asset.sys.id] = asset;
+        return map;
+      },
+      {}
+    );
+  }, [data]);
 
   if (loading) {
     return (
@@ -87,7 +97,6 @@ function Courses(props: CoursesTypes) {
             <span className="title font-medium truncate opacity-85 w-full">
               {course.fields.name}
             </span>
-
             <div className="info flex gap-2 w-full">
               <span className="spec flex gap-1 mr-auto">
                 <span className="opacity-70">Duration:</span>
@@ -95,22 +104,19 @@ function Courses(props: CoursesTypes) {
                   {course.fields.duration} days
                 </span>
               </span>
-
               <span className="spec flex gap-1">
                 <span className="opacity-70">Level:</span>
                 <span className="font-semibold opacity-85">
-                  {" "}
                   {course.fields.level}
                 </span>
               </span>
             </div>
-
             <Link
               className="cta"
               href={`/services/training/courses/${course.fields.slug}`}
             >
               Details
-              <ChevronRight />
+              <IconChevronRight />
             </Link>
           </div>
         );
