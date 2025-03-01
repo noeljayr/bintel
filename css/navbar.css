@@ -209,7 +209,7 @@
 
 @media all and (max-width: 720px) {
   .mobile-menu-btn {
-    display: flex;
+    display: flex !important;;
   }
 
   .navbar {
@@ -218,14 +218,14 @@
   }
 
   .links {
-    display: none;
+    display: none !important;;
   }
 
   .navbar .logo {
-    margin-right: auto;
-    width: fit-content;
+    margin-right: auto !important;;
+    width: fit-content !important;;
     display: grid;
-    grid-template-columns: 2.5rem auto;
+    grid-template-columns: 2.5rem auto !important;;
     word-wrap: normal;
     white-space: nowrap;
   }
