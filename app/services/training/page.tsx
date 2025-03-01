@@ -87,19 +87,13 @@ function Page() {
         </div>
       </div>
 
-      <div className="course-calendar relative w-full gap-4 mt-4">
+      <div className="course-calendar relative w-full gap-4 ">
         <div className="blob"></div>
         <div className="grassmorphic p-4 w-full flex flex-col gap-4">
           <span className="flex w-full gap-4">
             <span className="opacity-85 mr-auto font-medium">
               Most popular courses
             </span>
-            <Link
-              className="all-courses font-semibold"
-              href="/services/training"
-            >
-              All courses
-            </Link>
           </span>
 
           <Courses limit={10} />
