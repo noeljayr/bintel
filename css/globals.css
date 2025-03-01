@@ -35,7 +35,9 @@ html {
   }
 }
 
-@media all and (max-width: 400px) {
+
+
+@media all and (max-width: 440px) {
   :root {
     --font-l: 1.15rem;
   }
@@ -44,6 +46,12 @@ html {
 @media all and (min-width: 1440px) {
   html {
     font-size: clamp(16px, 1.48vw, 1.28em);
+  }
+}
+
+@media all and (max-width: 480px) {
+  html {
+    font-size: clamp(17px, 1.60vw, 1.35em);
   }
 }
 

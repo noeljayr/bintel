@@ -12,6 +12,8 @@ import {
   IconChevronDown,
   IconMail,
   IconPhone,
+  IconMenu,
+  IconX,
 } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import LiveChatToggle from "./LiveChat/LiveChatToggle";
@@ -239,9 +241,7 @@ const Navbar = () => {
           }`}
         >
           <div className="flex flex-col items-center justify-center w-full h-full">
-            <span className="bar" />
-            <span className="bar" />
-            <span className="bar" />
+            {menuActive ? <IconX /> : <IconMenu />}
           </div>
         </div>
       </div>
