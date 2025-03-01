@@ -86,7 +86,7 @@
   background-color: #fff;
   width: calc(100vw - 2rem);
   left: 1rem;
-  top: 0rem;
+  top: 0rem !important;
   border-radius: var(--radius-sm);
   border-top-right-radius: 0;
   border-top-left-radius: 0;
