@@ -68,7 +68,7 @@ function Page({ params }: { params: Promise<{ slug: string }> }) {
   return (
     <div className="page">
       <div className="banner flex flex-col gap-2 justify-center p-8 relative w-full">
-        <Image src={banner} className="absolute" alt="banner" />
+        <Image priority src={banner} className="absolute" alt="banner" />
         <div className="breadcrumbs flex items-center gap-2">
           <Link href="/">home</Link>
           <span></span>
@@ -220,7 +220,7 @@ function Page({ params }: { params: Promise<{ slug: string }> }) {
                   src={coverUrl}
                   alt={course.fields.name}
                   width={800}
-                  height={600} 
+                  height={600}
                   className="cover-image"
                 />
 

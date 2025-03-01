@@ -15,8 +15,6 @@ import Hardware from "@/components/services/bi/Hardware";
 import Integration from "@/components/services/bi/Integration";
 import { useState } from "react";
 
-
-
 const SECTIONS = [
   {
     id: "What We Offer",
@@ -74,15 +72,13 @@ function Page() {
   return (
     <div className="page gap-4 service-page">
       <div className="banner flex flex-col gap-2 justify-center p-8 relative w-full">
-        <Image src={banner} className="absolute" alt="banner" />
+        <Image priority src={banner} className="absolute" alt="banner" />
         <div className="breadcrumbs flex items-center gap-2">
           <Link href="/">home</Link>
           <span></span>
           <Link href="/services">services</Link>
           <span></span>
-          <Link href="/bi-it-infrastructure">
-            BI and IT Infrastructure
-          </Link>
+          <Link href="/bi-it-infrastructure">BI and IT Infrastructure</Link>
         </div>
         <h1 className="gradient-text">
           Business Intelligence & IT Infrastructure.

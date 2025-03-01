@@ -10,8 +10,21 @@
   width: 83%;
 }
 
+@media all and (max-width: 1000px) {
+  .page-content {
+    width: 100%;
+  }
+}
+
 .focus-area {
   grid-template-columns: 1fr 1fr 1fr;
+}
+
+@media all and (max-width: 522px) {
+  .focus-area {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .focus-area ul li {
@@ -40,8 +53,20 @@
   grid-template-columns: repeat(5, 1fr);
 }
 
+@media all and (max-width: 800px) {
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  }
+}
+
 .team-grid .relative {
   height: 13rem;
+}
+
+@media all and (max-width: 408px) {
+  .team-grid .relative {
+    height: 23rem;
+  }
 }
 
 .team-grid .relative img {

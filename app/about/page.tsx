@@ -53,8 +53,6 @@ const team = [
   },
 ];
 
-
-
 const SECTIONS = [
   {
     id: "Area of focus",
@@ -106,7 +104,7 @@ function About() {
   return (
     <div className="page">
       <div className="banner flex flex-col gap-2 justify-center p-8 relative w-full">
-        <Image src={banner} className="absolute" alt="banner" />
+        <Image priority src={banner} className="absolute" alt="banner" />
         <div className="breadcrumbs flex items-center gap-2">
           <Link href="/">home</Link>
           <span></span>

@@ -213,8 +213,8 @@
   }
 
   .navbar {
-    display: flex;
-    padding-right: 1rem;
+    display: flex !important;
+    padding-right: 1rem !important;
   }
 
   .links {
@@ -242,9 +242,6 @@
   gap: 0.2rem;
 }
 
-.mobile-menu-btn * {
-  transition: ease 0.3s;
-}
 
 .mobile-menu-btn:hover {
   background-color: var(--white);

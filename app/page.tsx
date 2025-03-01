@@ -38,7 +38,7 @@ export default function Home() {
           </h1>
         </div>
 
-        <Image src={banner} alt="hero image" className="hero-image" />
+        <Image priority src={banner} alt="hero image" className="hero-image" />
       </div>
 
       <div className="hero-tag relative w-full gap-4 grid">
