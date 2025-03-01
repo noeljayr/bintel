@@ -79,6 +79,13 @@
   font-size: var(--font-ss);
 }
 
+@media all and (max-width: 365px) {
+  .spec {
+    padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  }
+}
+
 .course-calendar .blob {
   left: 45%;
   top: 2rem;
