@@ -34,10 +34,10 @@ function Footer() {
         </div>
 
         <div className="flex flex-col gap-2 footer-more-services">
-          <Link className="opacity-85" href="/services/automation">
+          <Link className="opacity-85" href="#">
             Smart Automation
           </Link>
-          <Link className="opacity-85" href="/services/tablets">
+          <Link className="opacity-85" href="#">
             Data Collection Tablets
           </Link>
         </div>
