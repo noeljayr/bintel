@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   title: "Bintel Analytics",
   description:
     "Bintel Analytics is a data analytics and business intelligence consulting firm that helps organizations make data-driven decisions.",
+    
 };
 
 export default function RootLayout({

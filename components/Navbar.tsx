@@ -99,7 +99,7 @@ const Navbar = () => {
               }
             : {}
         }
-        className={`grid gap-4 items-center fixed px-8 py-2 navbar ${
+        className={`grid gap-4 items-center fixed py-2 navbar ${
           pathname === "/" ? "home-navbar" : "top-12"
         } ${isScrolled || menuActive ? "scrolled top-0" : ""} ${
           menuActive ? "navbar-active-menu" : ""

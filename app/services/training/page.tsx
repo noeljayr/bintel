@@ -12,7 +12,7 @@ import Events from "@/components/training/Events";
 function Page() {
   return (
     <div className="page gap-4">
-      <div className="banner flex flex-col gap-2 justify-center p-8 relative w-full">
+      <div className="banner flex flex-col gap-2 justify-center p-4 relative w-full">
         <Image priority src={banner} className="absolute" alt="banner" />
         <div className="breadcrumbs flex items-center gap-2">
           <Link href="/">home</Link>
