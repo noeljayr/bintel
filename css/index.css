@@ -4,7 +4,6 @@
   border-radius: var(--radius);
 }
 
-
 .hero .hero-image {
   display: flex;
   width: 100%;
@@ -814,30 +813,19 @@
 .highlight-card .absolute svg path {
   stroke-width: 0;
 }
+
+
 @media all and (max-width: 640px) {
   .highlight-card .relative {
-    top: -8rem;
-  }
-  .highlight-card {
-    top: 0;
+    top: 0.5rem;
     position: relative;
-    height: 19rem;
-  }
-
-  .highlight-card .absolute {
-    width: 80%;
-    height: initial;
-    aspect-ratio: 4/2;
-    left: 9vw;
-  }
-}
-
-@media all and (max-width: 480px) {
-  .highlight-card .relative {
-    top: -8.5rem;
+    height: 55vw;
+    width: 100%;
   }
   .highlight-card {
     height: 55vw;
+    position: relative;
+    top: 1rem;
   }
 
   .highlight-card .absolute {
@@ -849,7 +837,16 @@
   }
 }
 
-@media all and (max-width: 440px) {
+@media all and (max-width: 480px) {
+  .highlight-card .relative {
+    top: 0;
+  }
+  .highlight-card{
+    top: 0.5rem;
+  }
+}
+
+/* @media all and (max-width: 440px) {
   .highlight-card .relative {
     top: -7rem;
   }
@@ -865,9 +862,9 @@
   .highlight-card .relative {
     top: -6rem;
   }
-}
+} */
 
-@media all and (max-width: 330px) {
+/* @media all and (max-width: 330px) {
   .highlight-card .relative {
     top: -5.5rem;
   }
@@ -877,4 +874,4 @@
   .highlight-card .relative {
     top: -5rem;
   }
-}
+} */

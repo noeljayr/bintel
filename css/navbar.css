@@ -6,7 +6,7 @@
   background: #fff;
   width: calc(100vw - 2rem);
   border-radius: var(--radius-sm);
-  padding-left: 1rem;
+  padding-left: 0.5rem;
   padding-right: 0.5rem;
 }
 
@@ -274,13 +274,14 @@
   height: 100vh;
   width: 100vw;
   left: 0rem;
-  z-index: 5;
   background-color: white;
   overflow: hidden;
   top: 15vh;
   left: 0;
   opacity: 0;
   visibility: hidden;
+  z-index: -1;
+  pointer-events: none;
 }
 
 .menu-list-active {
@@ -290,6 +291,8 @@
   opacity: 1;
   visibility: visible;
   transition-delay: 0.15s;
+  z-index: 5;
+  pointer-events: all;
 }
 
 .navbar-active-menu {

@@ -10,7 +10,7 @@ import Link from "next/link";
 
 function Footer() {
   return (
-    <div className="footer grassmorphic w-full flex flex-col gap-8 p-8 mt-auto">
+    <div className="footer grassmorphic w-full flex flex-col gap-8 px-4 py-8 mt-auto">
       <div className="w-full top flex justify-between">
         <div className="info flex gap-2 items-center mb-auto">
           <Image src={logo} alt="bintel logo" />
@@ -19,35 +19,35 @@ function Footer() {
 
         <div className="flex flex-col gap-2">
           <span className="font-semibold opacity-85">Services</span>
-          <Link className="opacity-85" href="/bi-it-infrastructure">
+          <Link className="opacity-85" href="/services/bi-it-infrastructure">
             Business Intelligence and IT Infrastructure
           </Link>
-          <Link className="opacity-85" href="/data-collection">
+          <Link className="opacity-85" href="/services/data-collection">
             Data Collection, Management and Analysis
           </Link>
-          <Link className="opacity-85" href="/bi-training">
+          <Link className="opacity-85" href="/services/bi-training">
             Data Collection, Management and Analysis
           </Link>
-          <Link className="opacity-85" href="/research">
+          <Link className="opacity-85" href="/services/research">
             Research Services
           </Link>
         </div>
 
         <div className="flex flex-col gap-2 footer-more-services">
-          <Link className="opacity-85" href="/automation">
+          <Link className="opacity-85" href="/services/automation">
             Smart Automation
           </Link>
-          <Link className="opacity-85" href="/tablets">
+          <Link className="opacity-85" href="/services/tablets">
             Data Collection Tablets
           </Link>
         </div>
 
         <div className="flex flex-col gap-2">
           <span className="font-semibold opacity-85">Company</span>
-          <Link className="opacity-85" href="/about">
+          <Link className="opacity-85" href="/services/about">
             About us
           </Link>
-          <Link className="opacity-85" href="/contact">
+          <Link className="opacity-85" href="/services/contact">
             Contact
           </Link>
         </div>
