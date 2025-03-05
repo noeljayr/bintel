@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "@/css/globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "@fontsource/inter/300.css";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/500.css";
@@ -19,7 +19,6 @@ export const metadata: Metadata = {
   title: "Bintel Analytics",
   description:
     "Bintel Analytics is a data analytics and business intelligence consulting firm that helps organizations make data-driven decisions.",
-    
 };
 
 export default function RootLayout({
@@ -34,6 +33,7 @@ export default function RootLayout({
         <LiveChat />
         {children}
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   );
