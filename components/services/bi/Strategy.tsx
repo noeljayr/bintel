@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { transition, animate, initial } from "@/constants/Animations";
 
 function Strategy() {
   return (
     <>
-     <motion.h2 initial={initial} animate={animate} transition={transition}>
+      <motion.h2 initial={initial} animate={animate} transition={transition}>
         Strategy
       </motion.h2>
 

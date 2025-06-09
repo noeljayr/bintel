@@ -8,6 +8,7 @@
   border-radius: var(--radius-sm);
   padding-left: 1rem;
   padding-right: 0.5rem;
+  transition: var(--transition);
 }
 
 .home-navbar {
@@ -43,9 +44,10 @@
 .navbar .services-link {
   padding-right: 1rem;
   padding-left: 1rem;
+  transition: var(--transition);
 }
 
-.navbar a:hover {
+.navbar .links a:hover {
   text-decoration-line: underline;
   text-decoration-style: dashed;
   text-decoration-color: var(--secondary);
@@ -119,7 +121,6 @@
 .navbar .logo {
   position: relative;
   height: 100%;
-  width: 8.5rem;
 }
 
 .submenu {

@@ -1,5 +1,4 @@
-
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Image from "next/image";
 import verified from "@/public/icons/verify.png";
 import briefCase from "@/public/icons/tabler-icon-briefcase-filled.png";

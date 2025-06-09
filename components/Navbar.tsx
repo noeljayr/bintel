@@ -15,9 +15,10 @@ import {
   IconMenu,
   IconX,
 } from "@tabler/icons-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 import LiveChatToggle from "./LiveChat/LiveChatToggle";
 import "@/css/navbar.css";
+import { motionTransiton } from "@/constants/motionTransition";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -25,7 +26,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   const handleScroll = useCallback(() => {
-    const scrolled = window.scrollY >= 5;
+    const scrolled = window.scrollY >= 150;
     setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
   }, []);
 
@@ -105,29 +106,44 @@ const Navbar = () => {
           menuActive ? "navbar-active-menu" : ""
         }`}
       >
-        <Link href="/" className="font-semibold logo flex items-center gap-2">
-          {pathname !== "/" || menuActive ? (
-            <span key="logo">
-              <Image src={logo} alt="logo" />
-            </span>
-          ) : (
-            <AnimatePresence>
-              {isScrolled && (
+        <AnimatePresence mode="wait">
+          <motion.a
+            layout
+            transition={motionTransiton()}
+            href="/"
+            key="logo-container"
+            className="font-semibold logo flex items-center gap-2"
+          >
+            {pathname !== "/" || menuActive ? (
+              <motion.span transition={motionTransiton()} layout key="logo">
+                <Image src={logo} alt="logo" />
+              </motion.span>
+            ) : (
+              isScrolled && (
                 <motion.span
-                  key="logo"
+                  key="logo2"
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.4 }}
-                  style={{ display: "inline-block" }}
+                  transition={motionTransiton()}
+                  layout
                 >
                   <Image src={logo} alt="logo" />
                 </motion.span>
-              )}
-            </AnimatePresence>
-          )}
-          Bintel Analytics
-        </Link>
+              )
+            )}
+
+            <motion.span
+              layout
+              key="title"
+              transition={motionTransiton()}
+              className="font-semibold"
+              animate={{ color: isScrolled ? "var(--black)" : "var(--white)" }}
+            >
+              Bintel Analytics
+            </motion.span>
+          </motion.a>
+        </AnimatePresence>
 
         <div className="links mx-auto flex items-center">
           <Link

@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 html {
   font-family: "Inter", sans-serif;
@@ -11,66 +9,47 @@ html {
   background-color: var(--light);
 }
 
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  * {
+    padding: 0;
+    margin: 0;
+    color: var(--black);
+    box-sizing: border-box;
+    font-size: var(--font-p1);
+    scroll-behavior: smooth;
+    font-family: "Inter", sans-serif;
+    font-weight: normal;
+  }
+}
+
 :root {
   --black: #0e110e;
   --white: #f2f4f0;
   --primary: #145993;
   --secondary: #f9d157;
   --border: #e6e6e6;
-  --font-l: 1.8rem;
-  --font-m: 1.25rem;
-  --font-s: 0.7rem;
-  --font-ss: 0.55rem;
-  --font-xs: 0.5rem;
-  --radius: 1rem;
-  --radius-sm: 0.65rem;
+
+  /* typography */
+
+  --h1: clamp(1rem, 3.5vw, 1.25rem);
+  --h3: clamp(0.85rem, 2vw, 0.9rem);
+  --p1: clamp(0.65rem, 2vw, 0.75rem);
+  --p2: clamp(0.55rem, 1.75vw, 0.65rem);
+  --p3: clamp(0.45rem, 1.5vw, 0.55rem);
+  --p4: clamp(0.35rem, 1.45vw, 0.45rem);
+
+  /* elements */
+  --radius: 0.625rem;
+  --radius-sm: clamp(0.35rem, 1.1vw, 0.55rem);
+
   --padding: 1rem;
-  --transition: ease 0.3s;
+  --transition: ease 0.5s;
   --cta-hover: brightness(115%);
-}
-
-@media all and (max-width: 720px) {
-  :root {
-    --font-l: 1.35rem;
-  }
-}
-
-
-
-@media all and (max-width: 440px) {
-  :root {
-    --font-l: 1.15rem;
-  }
-}
-
-@media all and (min-width: 1440px) {
-  html {
-    font-size: clamp(16px, 1.48vw, 1.28em);
-  }
-}
-
-@media all and (max-width: 480px) {
-  html {
-    font-size: clamp(17px, 1.60vw, 1.35em);
-  }
-}
-
-@media all and (max-width: 387px) {
-  html {
-    font-size: clamp(14px, 1.45vw, 1.25em);
-  }
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  color: var(--black);
-  box-sizing: border-box;
-  font-size: var(--font-s);
-  scroll-behavior: smooth;
-  font-family: "Inter", sans-serif;
-  font-weight: normal;
-  transition: var(--transition);
 }
 
 h1 {
@@ -106,6 +85,44 @@ h4 {
   font-family: "Sora", sans-serif;
 }
 
+.font-h-1,
+.font-p1 * {
+  font-size: var(--h1) !important;
+}
+.font-h-2,
+.font-p2 * {
+  font-size: var(--h2) !important;
+}
+
+.font-h-3,
+.font-p3 * {
+  font-size: var(--h3) !important;
+}
+
+.font-h-4,
+.font-p4 * {
+  font-size: var(--h4) !important;
+}
+
+.font-p1,
+.font-p1 * {
+  font-size: var(--p1) !important;
+}
+.font-p2,
+.font-p2 * {
+  font-size: var(--p2) !important;
+}
+
+.font-p3,
+.font-p3 * {
+  font-size: var(--p3) !important;
+}
+
+.font-p4,
+.font-p4 * {
+  font-size: var(--p4) !important;
+}
+
 p {
   line-height: 180%;
 }
@@ -123,7 +140,7 @@ svg path {
   stroke: var(--black);
 }
 body {
-  background-color: #F4F4F6;
+  background-color: #f4f4f6;
   padding: 0;
   min-height: 100vh;
   overflow: hidden;

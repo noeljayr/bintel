@@ -16,7 +16,7 @@ import {
 } from "@/types/contentfulTypes";
 import { use } from "react";
 import { formatAmountWithCommas } from "@/utils/formatNumber";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 
 // Constants
 const API_URL =

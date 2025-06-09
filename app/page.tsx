@@ -26,13 +26,17 @@ import tablets from "@/public/tablets.png";
 import HomeCourses from "@/components/training/HomeCourses";
 import { HighlightsCards } from "@/components/Highlights";
 import LiveChatToggle from "@/components/LiveChat/LiveChatToggle";
+import { ChevronRight } from "lucide-react";
 
 export default function Home() {
   return (
     <div className="home-page gap-4 mb-16 flex flex-col w-full">
       <div className="hero flex flex-col gap-2 justify-center relative w-full">
-        <div className="absolute flex flex-col gap-4">
+        <div className="absolute flex flex-col gap-2">
           <Image src={logo} alt="bintel logo" className="logo" />
+          <Link style={{color: "var(--secondary)"}} href="" className="flex gap-2">
+            Secure Your Spot for 2025 trainings <ChevronRight />
+          </Link>
           <h1 className="gradient-text">
             Business Intelligence & Analytics Services.
           </h1>

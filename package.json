@@ -12,13 +12,14 @@
     "@fontsource/inter": "^5.1.1",
     "@fontsource/sora": "^5.1.1",
     "@n8n/chat": "^0.27.1",
+    "@rive-app/react-canvas": "^4.21.2",
     "@tabler/icons-react": "^3.30.0",
     "@vercel/speed-insights": "^1.2.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "contentful": "^11.5.0",
-    "framer-motion": "^12.4.3",
     "lucide-react": "^0.475.0",
+    "motion": "^12.16.0",
     "next": "15.1.7",
     "react-dom": "^19.0.0",
     "react-markdown": "^10.0.0",
@@ -34,7 +35,6 @@
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
     "postcss": "^8",
-    "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
 }
