@@ -56,6 +56,8 @@ function Page({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
   const width = useWindowWidth();
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
+  const [selectedTrainer, setSelectedTrainer] =
+    useState<TrainerFields | null>();
 
   // Fetch courses using async/await for clarity
   useEffect(() => {
@@ -185,7 +187,7 @@ function Page({ params }: { params: Promise<{ slug: string }> }) {
           ? `https:${coverAsset.fields.file.url}`
           : "";
 
-        // Helper component for the course sections (mobile or desktop)
+        
         const SectionContent = (
           <motion.div
             layout
@@ -241,98 +243,42 @@ function Page({ params }: { params: Promise<{ slug: string }> }) {
                     animate={{ opacity: 0.85 }}
                     exit={{ opacity: 0 }}
                     transition={motionTransiton}
-                    className="grid grid-cols-[repeat(auto-fit,_minmax(10rem,1fr))]  gap-2"
+                    className="grid grid-cols-[repeat(auto-fit,_minmax(10rem,1fr))] gap-2"
                   >
                     {course.fields.trainers.map((link, idx) => {
                       const trainer = trainerLookup[link.sys.id];
                       if (!trainer) return null; // defensive
-                      const isSelected = idx === selectedIdx;
+                      const isSelected = selectedTrainer === trainer;
 
                       return (
                         <motion.div
                           layout
-                          layoutId={`trainer-${idx}`}
-                          onClick={() =>
-                            setSelectedIdx(isSelected ? null : idx)
-                          }
+                          onClick={() => setSelectedTrainer(trainer)}
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: -10 }}
                           transition={{
-                            duration: 0.35,
+                            duration: 0.5,
                             ease: [0.25, 0.1, 0.25, 1],
                             delay: idx * 0.15,
                           }}
                           key={idx}
-                          className={`
-                              gap-2 pb-3 border-[1px] border-[var(--border)]
-                              rounded-[var(--radius-m)] p-1 cursor-pointer
-                              ${
-                                isSelected
-                                  ? "col-span-2 row-span-2 grid grid-rows-[auto_1fr] overflow-hidden"
-                                  : "col-span-1 row-span-1 flex flex-col "
-                              }
-                            `}
+                          className={`trainer flex flex-col gap-2 border-[1px] border-[var(--border)] rounded-[var(--radius-m)] p-1 pb-3 cursor-pointer`}
                         >
-                          <motion.div
-                            layout="position"
-                            layoutId="trainer-details"
-                            className={`flex ${
-                              isSelected
-                                ? "flex-row items-center"
-                                : "flex-col gap-2"
-                            }`}
+                          <span
+                            style={{ borderRadius: "var(--radius-s)" }}
+                            className="w-full bg-[var(--border)] flex items-center justify-center aspect-video"
                           >
-                            <motion.span
-                              layout="position"
-                              layoutId="trainer-name-pic"
-                              transition={motionTransiton}
-                              style={{ borderRadius: "var(--radius-s)" }}
-                              className={`${
-                                isSelected
-                                  ? "h-[3rem] w-[3rem]"
-                                  : "w-full aspect-video"
-                              } bg-[var(--border)] flex items-center justify-center`}
-                            >
-                              <IconUser
-                                className={`h-[1.5rem] w-[1.5rem] opacity-50 `}
-                              />
-                            </motion.span>
-                            <motion.div
-                              layout="position"
-                              transition={motionTransiton}
-                              className="flex flex-col px-2"
-                            >
-                              <motion.span
-                                layout="position"
-                                transition={motionTransiton}
-                                className="font-semibold font-p2"
-                              >
-                                {trainer.name}
-                              </motion.span>
-                              <motion.span
-                                layout="position"
-                                transition={motionTransiton}
-                                className="font-p3 font-medium mt-0.5 truncate opacity-70"
-                              >
-                                {trainer.qualification}
-                              </motion.span>
-                            </motion.div>
-                          </motion.div>
-
-                          {isSelected && (
-                            <motion.div
-                              layout="position"
-                              layoutId="profile-details"
-                              className="h-full w-full overflow-y-auto px-2 font-p-2 opacity-75"
-                            >
-                              <motion.div
-                                layout="position"
-                                layoutId="profile-details-info"
-                              />
-                              <ReactMarkdown>{trainer.profile}</ReactMarkdown>
-                            </motion.div>
-                          )}
+                            <IconUser className="h-[2rem] opacity-50 w-[2rem]" />
+                          </span>
+                          <div className="flex flex-col px-2">
+                            <span className="font-semibold font-p2">
+                              {trainer.name}
+                            </span>
+                            <span className="font-p3 font-medium mt-0.5 truncate opacity-70">
+                              {trainer.qualification}
+                            </span>
+                          </div>
                         </motion.div>
                       );
                     })}
