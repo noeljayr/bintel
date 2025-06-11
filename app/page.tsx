@@ -129,7 +129,7 @@ export default function Home() {
             </span>
           </span>
         </motion.div>
-        <motion.div className="grassmorphic relative p-4 flex flex-col gap-2">
+        <motion.div className="max-sm:aspect-square grassmorphic relative p-4 flex flex-col gap-2">
           <HighlightAnimation />
         </motion.div>
       </motion.div>
@@ -256,26 +256,21 @@ export default function Home() {
               >
                 <motion.span
                   initial={{ y: 100 }}
-                  whileInView={{ y: 0 }}
+                  whileInView={{ y: 50 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }}
                   className="w-[13rem] left-[0rem] z-[2]  absolute"
                 >
-                  <Image
-                    src={tablet1}
-                    style={{ width: "13rem" }}
-                    className="w-[13rem]  "
-                    alt=""
-                  />
+                  <Image src={tablet1} className="w-[13rem]  " alt="" />
                 </motion.span>
                 <motion.span
-                  initial={{ y: 100 }}
-                  whileInView={{ y: 0 }}
+                  initial={{ y: 50 }}
+                  whileInView={{ y: -65 }}
                   viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 3.5, ease: [0.25, 0.1, 0.25, 1] }}
-                  className="w-[7.5rem] left-[6rem] top-[1rem] absolute object-contain"
+                  transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }}
+                  className="w-[8rem] left-[6rem] flex top-[1rem] absolute object-contain"
                 >
-                  <Image src={tablet2} className="w-[7.5rem] " alt="" />
+                  <Image src={tablet2} className="w-[8rem] " alt="" />
                 </motion.span>
               </span>
             </div>
