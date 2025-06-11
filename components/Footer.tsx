@@ -1,3 +1,5 @@
+"use client";
+
 import "@/css/footer.css";
 import logo from "@/public/logo/bintel.png";
 import {
@@ -7,10 +9,17 @@ import {
 } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
+import { AnimatePresence, motion } from "motion/react";
 
 function Footer() {
   return (
-    <div className="footer grassmorphic w-full flex flex-col gap-8 px-4 py-8 mt-auto">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 2.5, ease: [0.25, 0.1, 0.25, 1] }}
+      className="footer grassmorphic w-full flex flex-col gap-8 px-4 py-8 mt-auto"
+    >
       <div className="w-full top flex justify-between">
         <div className="info flex gap-2 items-center mb-auto">
           <Image src={logo} alt="bintel logo" />
@@ -93,7 +102,7 @@ function Footer() {
 
         <span className="ml-auto">Bintel 2025. All Rights Reserved</span>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

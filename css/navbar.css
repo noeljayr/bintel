@@ -5,7 +5,7 @@
   justify-content: space-between;
   background: #fff;
   width: calc(100vw - 2rem);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-s);
   padding-left: 1rem;
   padding-right: 0.5rem;
   transition: var(--transition);
@@ -90,7 +90,7 @@
   width: calc(100vw - 2rem);
   left: 1rem;
   top: 0rem !important;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-m);
   border-top-right-radius: 0;
   border-top-left-radius: 0;
   padding: 0.75rem;
@@ -125,7 +125,7 @@
 
 .submenu {
   background-color: white;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-s);
   width: 15rem;
   overflow: hidden;
   opacity: 0;
@@ -165,12 +165,12 @@
 
 .contact-header {
   background-color: var(--black);
-  border-radius: 0.55rem;
+  border-radius: calc(var(--radius-m) * 0.85)
 }
 
 .contact-header * {
   color: var(--white);
-  font-size: var(--font-ss);
+  font-size: var(--p3);
 }
 .contact-header a {
   opacity: 0.8;
@@ -303,7 +303,7 @@
 }
 
 .navbar-active-menu a {
-  font-size: var(--font-s);
+  font-size: var(--p2);
 }
 
 .menu-list .services-link-mobile .submenu {
@@ -320,7 +320,7 @@
 
 .menu-list .services-link-mobile .submenu a {
   color: var(--black);
-  font-size: var(--font-s);
+  font-size: var(--p2);
 }
 
 @media all and (max-width: 380px) {

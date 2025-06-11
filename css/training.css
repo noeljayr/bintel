@@ -40,7 +40,7 @@
 .courses-container .course {
   padding: 0.35rem;
   border: 1px solid var(--border);
-  border-radius: calc(var(--radius-sm) / 0.85);
+  border-radius: var(--radius-m);
 }
 
 .courses-container .course img {
@@ -48,7 +48,7 @@
   height: fit-content;
   aspect-ratio: 4/2;
   object-fit: cover;
-  border-radius: var(--radius-sm);
+  border-radius: calc(var(--radius-m) * 0.90);
 }
 
 @media all and (min-width: 1440px) {
@@ -76,13 +76,13 @@
   padding-right: 1rem;
 }
 .spec * {
-  font-size: var(--font-ss);
+  font-size: var(--p3);
 }
 
 @media all and (max-width: 365px) {
   .spec {
     padding-left: 0.5rem;
-  padding-right: 0.5rem;
+    padding-right: 0.5rem;
   }
 }
 
@@ -106,7 +106,7 @@
 .events .event {
   background: rgba(255, 255, 255, 0.85);
   border: 1px solid #f5f4f4;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-s);
   padding: 1rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;
@@ -146,12 +146,12 @@
 
 .events .event .date,
 .events .event .venue {
-  font-size: var(--font-ss);
+  font-size: var(--p3);
   grid-template-columns: auto 1fr;
 }
 
 .events .event .venue span {
-  font-size: var(--font-ss);
+  font-size: var(--p3);
 }
 
 .course-view {
@@ -178,13 +178,13 @@
 }
 .price {
   color: var(--primary);
-  font-size: 1rem;
+  font-size: var(--h1);
   font-family: "Sora", sans-serif;
   line-height: normal;
 }
 
 .target-audience {
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-s);
   border: 1px solid var(--border);
 }
 
@@ -192,7 +192,7 @@
   width: 100%;
   aspect-ratio: 4/2;
   object-fit: cover;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-s);
 }
 
 .course-sections .sections {
@@ -250,7 +250,7 @@
 }
 
 .weekday {
-  font-size: var(--font-ss);
+  font-size: var(--p3);
   width: 2.75rem;
   font-weight: bold;
   opacity: 0.5;
@@ -271,7 +271,7 @@
 .learning-outcomes h1,
 .learning-outcomes h2,
 .learning-outcomes h3 {
-  font-size: var(--font-s);
+  font-size: var(--p2);
 }
 
 .learning-outcomes ul,

@@ -26,7 +26,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   const handleScroll = useCallback(() => {
-    const scrolled = window.scrollY >= 150;
+    const scrolled = window.scrollY >= 10;
     setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
   }, []);
 
@@ -109,13 +109,13 @@ const Navbar = () => {
         <AnimatePresence mode="wait">
           <motion.a
             layout
-            transition={motionTransiton()}
+            transition={motionTransiton}
             href="/"
             key="logo-container"
             className="font-semibold logo flex items-center gap-2"
           >
             {pathname !== "/" || menuActive ? (
-              <motion.span transition={motionTransiton()} layout key="logo">
+              <motion.span transition={motionTransiton} layout key="logo">
                 <Image src={logo} alt="logo" />
               </motion.span>
             ) : (
@@ -125,7 +125,7 @@ const Navbar = () => {
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  transition={motionTransiton()}
+                  transition={motionTransiton}
                   layout
                 >
                   <Image src={logo} alt="logo" />
@@ -133,15 +133,22 @@ const Navbar = () => {
               )
             )}
 
-            <motion.span
-              layout
-              key="title"
-              transition={motionTransiton()}
-              className="font-semibold"
-              animate={{ color: isScrolled ? "var(--black)" : "var(--white)" }}
-            >
-              Bintel Analytics
-            </motion.span>
+            {pathname === "/" ? (
+              <motion.span
+                layout
+                key="title"
+                transition={motionTransiton}
+                className="font-semibold"
+                initial={{ color: "var(--white)" }}
+                animate={{
+                  color: isScrolled ? "var(--black)" : "var(--white)",
+                }}
+              >
+                Bintel Analytics
+              </motion.span>
+            ) : (
+              <>Bintel Analytics</>
+            )}
           </motion.a>
         </AnimatePresence>
 

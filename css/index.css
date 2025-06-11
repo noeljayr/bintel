@@ -1,5 +1,5 @@
 .hero {
-  height: 25rem;
+  height: 29rem;
   overflow: hidden;
   border-radius: var(--radius);
 }
@@ -23,6 +23,18 @@
 
 .hero h1 {
   width: 20rem;
+  font-size: calc(var(--h1) / 0.8);
+  line-height: 150%;
+}
+
+.hero svg {
+  height: 0.85rem;
+  width: 0.85rem;
+}
+
+.hero svg path {
+  stroke: var(--secondary);
+  stroke-width: 2px;
 }
 
 @media all and (max-width: 380px) {
@@ -73,7 +85,7 @@
 .clients {
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid #f2f2f2;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-s);
 }
 
 .clients .grid {
@@ -354,9 +366,9 @@
 .service .icon {
   height: 2.25rem;
   width: 2.25rem;
-  border-radius: 0.35rem;
+  border-radius: var(--radius-ss);
   background: rgba(42, 119, 183, 0.5);
-  border: 0.5px solid rgba(227, 239, 249, 0.25);
+  border: 1px solid rgba(227, 239, 249, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -386,7 +398,7 @@
   grid-template-columns: auto 1fr auto;
   background: #206199;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-s);
   height: 2.55rem;
   align-items: center;
   width: 20rem;
@@ -395,9 +407,9 @@
 
 .input-group button {
   height: 2rem;
-  font-size: var(--font-ss);
+  font-size: var(--p3);
   margin-right: 0.25rem;
-  border-radius: calc(var(--radius-sm) * 0.8);
+  border-radius: calc(var(--radius-s) * 0.8);
 }
 
 .input-group input {
@@ -534,7 +546,7 @@
 @media all and (max-width: 426px) {
   .subscribe h1 {
     width: 100%;
-    font-size: var(--font-m);
+    font-size: var(--p1);
   }
   .subscribe p {
     width: 90%;
@@ -711,11 +723,11 @@
   background-color: red;
 }
 
-.more-s-image img {
+/* .more-s-image img {
   width: fit-content;
   height: 100%;
   position: relative;
-}
+} */
 
 .home-courses h1 {
   width: 45rem;
@@ -814,7 +826,6 @@
   stroke-width: 0;
 }
 
-
 @media all and (max-width: 640px) {
   .highlight-card .relative {
     top: 0.5rem;
@@ -841,7 +852,7 @@
   .highlight-card .relative {
     top: 0;
   }
-  .highlight-card{
+  .highlight-card {
     top: 0.5rem;
   }
 }

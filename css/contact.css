@@ -80,7 +80,7 @@
 .contact-form textarea {
   height: 2.35rem;
   border: 1px solid #e6e6e6;
-  border-radius: calc(var(--radius-sm) * 0.85);
+  border-radius: calc(var(--radius-s) * 0.85);
   padding: 0.5rem;
   padding-left: 0.75rem;
   padding-right: 0.75rem;

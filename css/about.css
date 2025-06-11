@@ -4,8 +4,6 @@
   filter: grayscale(100%);
 }
 
-
-
 .page-content {
   width: 83%;
 }
@@ -73,7 +71,7 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-s);
   object-position: center;
 }
 
@@ -85,6 +83,6 @@
   border-radius: 0.5rem;
 }
 
-.team-grid .absolute .role{
+.team-grid .absolute .role {
   font-size: 0.6rem;
 }
