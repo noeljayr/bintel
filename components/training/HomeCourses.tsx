@@ -23,11 +23,26 @@ function HomeCourses() {
 
   const courseLimit = useMemo(() => (width >= 1440 ? 3 : 2), [width]);
 
+  const formatDate = (startDate: string) =>{
+    const options: Intl.DateTimeFormatOptions = {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    };
+    const date = new Date(startDate)
+    const formattedStartDate = date.toLocaleDateString(
+      "en-GB",
+      options
+    );
+
+    return formattedStartDate
+  }
+
   return (
     <div className="home-courses flex flex-col gap-2 items-center mt-8 w-full">
       <motion.h1
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ y: 0, opacity: 0.85 }}
+        initial={{ opacity: 0,}}
+        whileInView={{  opacity: 0.85 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }}
         className="text-center opacity-85 home-h1-desktop"
@@ -36,8 +51,8 @@ function HomeCourses() {
       </motion.h1>
 
       <motion.h1
-        initial={{ opacity: 0, y: 25 }}
-        whileInView={{ y: 0, opacity: 0.85 }}
+        initial={{ opacity: 0, }}
+        whileInView={{ opacity: 0.85 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
         className="text-center opacity-85 home-h1-mobile"
@@ -52,16 +67,15 @@ function HomeCourses() {
           "Access to industry-certified tools",
           "Excellent post-training support",
         ].map((benefit, index) => {
-          let idx = index + 1;
+          // let idx = index + 1;
           return (
             <motion.span
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ y: 0, opacity: 0.85 }}
+              initial={{ opacity: 0 }}
+              whileInView={{  opacity: 0.85 }}
               viewport={{ once: true }}
               transition={{
                 duration: 0.5,
                 ease: [0.25, 0.1, 0.25, 1],
-                delay: idx * 0.15,
               }}
               key={index}
               className="flex items-center opacity-75 gap-2"
@@ -74,8 +88,8 @@ function HomeCourses() {
       </div>
 
       <motion.div
-        initial={{ y: 60, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
+        initial={{  opacity: 0 }}
+        whileInView={{  opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 2.35, ease: [0.25, 0.1, 0.25, 1] }}
         className="course-calendar relative w-full gap-4 mt-4"

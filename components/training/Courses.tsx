@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
-import { IconChevronRight } from "@tabler/icons-react";
+import { IconCalendarWeek, IconChevronRight } from "@tabler/icons-react";
 import {
   ContentfulResponse,
   CourseEntry,
@@ -60,6 +60,18 @@ function Courses({ limit }: CoursesTypes) {
     );
   }, [data]);
 
+  const formatDate = (startDate: string) => {
+    const options: Intl.DateTimeFormatOptions = {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    };
+    const date = new Date(startDate);
+    const formattedStartDate = date.toLocaleDateString("en-GB", options);
+
+    return formattedStartDate;
+  };
+
   if (loading) {
     return (
       <div className="courses-container w-full grid gap-4">
@@ -67,6 +79,21 @@ function Courses({ limit }: CoursesTypes) {
       </div>
     );
   }
+
+  const formatEndDate = (startDate: string, duration: number) => {
+    const endDate = new Date(startDate);
+    const date = new Date(startDate);
+    endDate.setDate(date.getDate() + duration);
+    const options: Intl.DateTimeFormatOptions = {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    };
+
+    const formattedEndDate = endDate.toLocaleDateString("en-GB", options);
+
+    return formattedEndDate;
+  };
 
   if (error) {
     return (
@@ -104,10 +131,12 @@ function Courses({ limit }: CoursesTypes) {
                   {course.fields.duration} days
                 </span>
               </span>
-              <span className="spec flex gap-1">
-                <span className="opacity-70">Level:</span>
+              <span className="spec flex gap-1 items-center">
+                <span className="opacity-70">
+                  <IconCalendarWeek className="w-3 h-3" />
+                </span>
                 <span className="font-semibold opacity-85">
-                  {course.fields.level}
+                  {formatDate(course.fields.nextAvailable)}
                 </span>
               </span>
             </div>

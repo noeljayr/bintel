@@ -56,6 +56,7 @@ export default function Home() {
           >
             <Link
               style={{ color: "var(--secondary)" }}
+              target="_blank"
               href="https://bintelstore.surveycto.com/collect/binteltraining?caseid="
               className=" border-[1px] border-[rgba(249,_209,_87,_0.15)] bg-[rgba(249,_209,_87,_0.15)] flex gap-2 p-2 rounded-4xl font-p3 font-bold items-center w-fit px-4 mt-2.5 mb-1"
             >
@@ -323,8 +324,8 @@ export default function Home() {
           </motion.div>
 
           <motion.div
-            initial={{ y: 60, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }}
             className="grid automation w-full gap-3"
@@ -385,8 +386,8 @@ export default function Home() {
       <HomeCourses />
 
       <motion.div
-        initial={{ y: 60, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }}
         className="subscribe relative overflow-hidden flex flex-col gap-2 w-full"

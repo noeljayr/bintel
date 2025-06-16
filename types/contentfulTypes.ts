@@ -58,10 +58,11 @@ export interface CourseFields {
   description: string;
   targetAudience: string;
   coverImage: Link;
+  poster: Link; // ← newly added
   venue: string;
   learningOutcomes: string;
   nextAvailable: string;
-  trainers: Link[]; // ← added!
+  trainers: Link[]; // already present
 }
 
 // A single asset (e.g. an image)

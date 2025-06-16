@@ -18,7 +18,12 @@ import {
 import { use } from "react";
 import { formatAmountWithCommas } from "@/utils/formatNumber";
 import { motion, AnimatePresence } from "motion/react";
-import { IconChevronRight, IconUser } from "@tabler/icons-react";
+import {
+  IconChevronRight,
+  IconPhoto,
+  IconUser,
+  IconX,
+} from "@tabler/icons-react";
 import { motionTransiton } from "@/constants/motionTransition";
 
 // Constants
@@ -58,6 +63,7 @@ function Page({ params }: { params: Promise<{ slug: string }> }) {
   const [selectedIdx, setSelectedIdx] = useState<number | null>(null);
   const [selectedTrainer, setSelectedTrainer] =
     useState<TrainerFields | null>();
+  const [posterActive, setPosterActive] = useState(false);
 
   // Fetch courses using async/await for clarity
   useEffect(() => {
@@ -187,7 +193,12 @@ function Page({ params }: { params: Promise<{ slug: string }> }) {
           ? `https:${coverAsset.fields.file.url}`
           : "";
 
-        
+        const posterImageId = course.fields.poster?.sys?.id;
+        const posterAsset = assetMap[posterImageId];
+        const posterUrl = posterAsset
+          ? `https:${posterAsset.fields.file.url}`
+          : "";
+
         const SectionContent = (
           <motion.div
             layout
@@ -248,7 +259,6 @@ function Page({ params }: { params: Promise<{ slug: string }> }) {
                     {course.fields.trainers.map((link, idx) => {
                       const trainer = trainerLookup[link.sys.id];
                       if (!trainer) return null; // defensive
-                      const isSelected = selectedTrainer === trainer;
 
                       return (
                         <motion.div
@@ -350,13 +360,55 @@ function Page({ params }: { params: Promise<{ slug: string }> }) {
                     </span>
                   </span>
                   {/* <LiveChatToggle variant="cta" label="Register Now" icon /> */}
+
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      pointerEvents: "none",
+                      visibility: "hidden",
+                    }}
+                    animate={{
+                      opacity: posterActive ? 1 : 0,
+                      pointerEvents: posterActive ? "all" : "none",
+                      visibility: posterActive ? "visible" : "hidden",
+                    }}
+                    transition={motionTransiton}
+                    onClick={() => setPosterActive(!posterActive)}
+                    className="gap-2 fixed w-screen h-screen flex flex-col items-center justify-center top-0 left-0 z-[5] bg-[rgba(20,89,147,0.3)] backdrop-blur-[5px]"
+                  >
+                    <div className="flex w-fit max-[720]:w-[80%] max-[500]:w-[90%]  flex-col gap-2">
+                      <span className="flex items-center justify-center h-6 w-6 bg-[var(--white)] rounded-full border-[1px] border-[var(--border)] ml-auto cursor-pointer">
+                        <IconX className="h-3 w-3" />
+                      </span>
+                      <Image
+                        src={posterUrl}
+                        alt=""
+                        className="h-fit rounded-[var(--radius-s)] max-[720]:w-[100%]"
+                        width={650}
+                        height={800}
+                      />
+                    </div>
+                  </motion.div>
                   <Link
+                    target="_blank"
                     href="https://bintelstore.surveycto.com/collect/binteltraining?caseid="
                     className="cta"
                   >
                     Register now
                     <IconChevronRight />
                   </Link>
+                </div>
+
+                <div className="grid grid-cols-[1fr_auto] w-full gap-2 items-center">
+                  <div className="note px-2 py-1 flex flex-col gap-2 h-full w-full rounded-[calc(var(--radius-m)_*_.85)] border-[1px] border-[var(--border)]">
+                    <span className="font-medium opacity-85 font-p3">NOTE: The fees covers registration, course materials, certificates and refreshments (Two Installments allowed)</span>
+                  </div>
+                  <span
+                    onClick={() => setPosterActive(!posterActive)}
+                    className="cta-3"
+                  >
+                    View poster
+                  </span>
                 </div>
               </div>
 
