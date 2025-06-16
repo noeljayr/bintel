@@ -324,8 +324,8 @@ export default function Home() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ y: 60, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }}
             className="grid automation w-full gap-3"
@@ -386,8 +386,8 @@ export default function Home() {
       <HomeCourses />
 
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ y: 60, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }}
         className="subscribe relative overflow-hidden flex flex-col gap-2 w-full"

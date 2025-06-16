@@ -23,26 +23,23 @@ function HomeCourses() {
 
   const courseLimit = useMemo(() => (width >= 1440 ? 3 : 2), [width]);
 
-  const formatDate = (startDate: string) =>{
+  const formatDate = (startDate: string) => {
     const options: Intl.DateTimeFormatOptions = {
       day: "2-digit",
       month: "short",
       year: "numeric",
     };
-    const date = new Date(startDate)
-    const formattedStartDate = date.toLocaleDateString(
-      "en-GB",
-      options
-    );
+    const date = new Date(startDate);
+    const formattedStartDate = date.toLocaleDateString("en-GB", options);
 
-    return formattedStartDate
-  }
+    return formattedStartDate;
+  };
 
   return (
     <div className="home-courses flex flex-col gap-2 items-center mt-8 w-full">
       <motion.h1
-        initial={{ opacity: 0,}}
-        whileInView={{  opacity: 0.85 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 0.85 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: [0.25, 0.1, 0.25, 1] }}
         className="text-center opacity-85 home-h1-desktop"
@@ -51,7 +48,7 @@ function HomeCourses() {
       </motion.h1>
 
       <motion.h1
-        initial={{ opacity: 0, }}
+        initial={{ opacity: 0 }}
         whileInView={{ opacity: 0.85 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
@@ -71,7 +68,7 @@ function HomeCourses() {
           return (
             <motion.span
               initial={{ opacity: 0 }}
-              whileInView={{  opacity: 0.85 }}
+              whileInView={{ opacity: 0.85 }}
               viewport={{ once: true }}
               transition={{
                 duration: 0.5,
@@ -88,8 +85,8 @@ function HomeCourses() {
       </div>
 
       <motion.div
-        initial={{  opacity: 0 }}
-        whileInView={{  opacity: 1 }}
+        initial={{ y: 60, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 2.35, ease: [0.25, 0.1, 0.25, 1] }}
         className="course-calendar relative w-full gap-4 mt-4"
