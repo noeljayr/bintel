@@ -401,7 +401,11 @@ function Page({ params }: { params: Promise<{ slug: string }> }) {
 
                 <div className="grid grid-cols-[1fr_auto] w-full gap-2 items-center">
                   <div className="note px-2 py-1 flex flex-col gap-2 h-full w-full rounded-[calc(var(--radius-m)_*_.85)] border-[1px] border-[var(--border)]">
-                    <span className="font-medium opacity-85 font-p3">NOTE: The fees covers registration, course materials, certificates and refreshments (Two Installments allowed)</span>
+                    <span className="font-medium opacity-85 font-p3">
+                      The fees covers registration, course materials,
+                      certificates and refreshments {`(`}2 Installments allowed
+                      {`)`}
+                    </span>
                   </div>
                   <span
                     onClick={() => setPosterActive(!posterActive)}
