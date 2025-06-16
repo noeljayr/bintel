@@ -91,8 +91,8 @@ function Page() {
         <div className="blob"></div>
         <div className="grassmorphic p-4 w-full flex flex-col gap-4">
           <span className="flex w-full gap-4">
-            <span className="opacity-85 mr-auto font-medium">
-              Most popular courses
+            <span className="opacity-85 mr-auto font-semibold">
+              Courses
             </span>
           </span>
 
