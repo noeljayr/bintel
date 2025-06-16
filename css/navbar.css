@@ -284,6 +284,7 @@
   visibility: hidden;
   z-index: -1;
   pointer-events: none;
+  transition: var(--transition);
 }
 
 .menu-list-active {
