@@ -384,8 +384,8 @@ function Page({ params }: { params: Promise<{ slug: string }> }) {
                         src={posterUrl}
                         alt=""
                         className="h-fit rounded-[var(--radius-s)] max-[720]:w-[100%]"
-                        width={650}
-                        height={800}
+                        width={500}
+                        height={700}
                       />
                     </div>
                   </motion.div>

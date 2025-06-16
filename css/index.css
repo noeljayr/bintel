@@ -688,7 +688,11 @@
   .more-services .grid .more-s-image{
     aspect-ratio: 2/1.7;
   }
-
+  .more-services .auto-animation-div .absolute{
+    height: 40rem;
+    width: 115vw;
+    left: -5vw;
+  }
 }
 
 @media all and (max-width: 400px) {

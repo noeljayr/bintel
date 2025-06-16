@@ -376,7 +376,7 @@ export default function Home() {
                 </span>
               </span>
             </div>
-            <div className="more-s-image relative">
+            <div className="more-s-image auto-animation-div relative">
               <Automation />
             </div>
           </motion.div>
