@@ -392,27 +392,39 @@ function Page({ params }: { params: Promise<{ slug: string }> }) {
                   <Link
                     target="_blank"
                     href="https://bintelstore.surveycto.com/collect/binteltraining?caseid="
-                    className="cta"
+                    className="cta max-[350]:invisible max-[350]:absolute"
                   >
                     Register now
                     <IconChevronRight />
                   </Link>
                 </div>
 
-                <div className="grid grid-cols-[1fr_auto] w-full gap-2 items-center">
-                  <div className="note px-2 py-1 flex flex-col gap-2 h-full w-full rounded-[calc(var(--radius-m)_*_.85)] border-[1px] border-[var(--border)]">
+                <div className="grid grid-cols-[1fr_auto] max-[350]:flex max-[350]:flex-col max-[350]:items-start w-full gap-2 items-center">
+                  <div className="note items-center px-2 py-1 max-[350]:p-2 flex gap-2 h-full w-full rounded-[calc(var(--radius-m)_*_.85)] border-[1px] border-[var(--border)]">
                     <span className="font-medium opacity-85 font-p3">
                       The fees covers registration, course materials,
                       certificates and refreshments {`(`}2 Installments allowed
                       {`)`}
                     </span>
                   </div>
-                  <span
-                    onClick={() => setPosterActive(!posterActive)}
-                    className="cta-3"
+                  <div className="grid grid-cols-[auto_1fr] w-full gap-2 relative">
+                    <span
+                      onClick={() => setPosterActive(!posterActive)}
+                      className="cta-3"
+                    >
+                      View poster
+                    </span>
+
+                    <Link
+                    style={{width: "100%"}}
+                    target="_blank"
+                    href="https://bintelstore.surveycto.com/collect/binteltraining?caseid="
+                    className="cta invisible absolute pointer-events-none max-[350]:visible max-[350]:static max-[350]:pointer-events-auto"
                   >
-                    View poster
-                  </span>
+                    Register now
+                    <IconChevronRight />
+                  </Link>
+                  </div>
                 </div>
               </div>
 
