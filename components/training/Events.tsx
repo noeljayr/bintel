@@ -92,7 +92,10 @@ function Events({ limit }: CoursesTypes) {
               );
 
               return (
-                <div key={event.sys.id} className="event grid items-center gap-2">
+                <div
+                  key={event.sys.id}
+                  className="event grid items-center gap-2"
+                >
                   <div className="info gap-1 flex flex-col truncate w-full">
                     <Link
                       title={event.fields.name}
@@ -121,7 +124,9 @@ function Events({ limit }: CoursesTypes) {
                       </span>
                     </span>
                   </div>
-                  <LiveChatToggle variant="event" label="" />
+                  <Link href={`https://bintelstore.surveycto.com/collect/binteltraining?caseid=`} className={`cta-3`}>
+                    <IconChevronRight />
+                  </Link>
                 </div>
               );
             })}

@@ -2,7 +2,11 @@
 
 import React, { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
-import { IconCalendarWeek, IconChevronRight } from "@tabler/icons-react";
+import {
+  IconCalendarWeek,
+  IconChevronRight,
+  IconClock,
+} from "@tabler/icons-react";
 import {
   ContentfulResponse,
   CourseEntry,
@@ -126,17 +130,19 @@ function Courses({ limit }: CoursesTypes) {
             </span>
             <div className="info flex gap-2 w-full">
               <span className="spec flex gap-1 mr-auto">
-                <span className="opacity-70">Duration:</span>
-                <span className="font-semibold opacity-85">
-                  {course.fields.duration} days
-                </span>
-              </span>
-              <span className="spec flex gap-1 items-center">
                 <span className="opacity-70">
                   <IconCalendarWeek className="w-3 h-3" />
                 </span>
                 <span className="font-semibold opacity-85">
                   {formatDate(course.fields.nextAvailable)}
+                </span>
+              </span>
+              <span className="spec flex gap-1 items-center">
+                <span className="opacity-70">
+                  <IconClock className="w-3 h-3" />
+                </span>
+                <span className="font-semibold opacity-85">
+                  {course.fields.duration} days
                 </span>
               </span>
             </div>
